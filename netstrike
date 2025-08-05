@@ -36,6 +36,7 @@ print(Fore.RED + """
          ░    ░  ░              ░              ░      ░  ░  ░      ░  ░ 
     
 """ + Style.RESET_ALL)
+print(Fore.YELLOW +"\nWARNING: BY PROCEEDING, YOU ACKNOWLEDGE AND ACCEPT FULL RESPONSABILITY FOR THE USE OF NETSTRIKE!!!\n" + Style.RESET_ALL)
 
 def tcp_infinite_DOS():
     while True:
