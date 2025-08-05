@@ -31,6 +31,7 @@ THANK YOU!!!
 
 # Bonus:
 For my fellas CURRIOUS RESPNSIBLE hackers, to add a layer of security:
+
     .Use a VPN or VPS (remote server) to hide real IP
     .Use IP spoofing (works only with UDP floods)
     .Launch attacks from public Wi-Fi or open networks
