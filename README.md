@@ -1,5 +1,6 @@
 # NetStrike
-An advanced open source DOS tool that support both UDP and TCP protocole
+An advanced open source DOS tool that support both UDP and TCP protocole.
+
 WARNING: BY PROCEEDING, YOU ACKNOWLEDGE AND ACCEPT FULL RESPONSABILITY FOR THE USE OF NETSTRIKE!!!
 
 # HOW TO USE ❓
