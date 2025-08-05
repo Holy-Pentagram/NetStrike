@@ -23,7 +23,7 @@ python3 installer.py
 ```
 
 # Step 3:
-Now because of the automation you can just run my tool wherever you are on you rterminal using the command netstrike.
+Now because of the automation you can just run my tool wherever you are on your terminal using the command netstrike.
 exemple: netstrike <protocol> <duration (optional)> <IP_address>
 additionaly, you can use the command 'netstrike -h' or 'netstrike --help' to learn how to use the tool
 
