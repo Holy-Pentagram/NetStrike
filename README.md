@@ -32,7 +32,7 @@ additionaly, you can use the command 'netstrike -h' or 'netstrike --help' to lea
 THANK YOU!!!
 
 # Bonus:
-For my fellas CURRIOUS RESPNSIBLE hackers, to add a layer of security:
+For my fellas CURRIOUS RESPONSABLE hackers, to add a layer of security:
 
     .Use a VPN or VPS (remote server) to hide real IP
     .Use IP spoofing (works only with UDP floods)
