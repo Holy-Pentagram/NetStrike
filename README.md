@@ -5,7 +5,7 @@ WARNING: BY PROCEEDING, YOU ACKNOWLEDGE AND ACCEPT FULL RESPONSABILITY FOR THE U
 
 # HOW TO USE ❓
 
-First thing first, I am happy to announce that I made this tool completely easy to use and that by implementing automatic installations and change it to binary automaticcally, and all you user have to do is followt hese steps no matter what is your operating system, the program support Linux and Windows for now but just write a comments in this repository and I would be happy tol add it !!!!
+First thing first, I am happy to announce that I made this tool completely easy to use and that by implementing automatic installations and change it to binary automaticcally, and all you user have to do is followe these steps no matter what is your operating system, the program support Linux and Windows for now but just write a comments in this repository and I would be happy tol add it !!!!
 # Step 0:
 install requirements:
 ```bash
